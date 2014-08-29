@@ -51,6 +51,15 @@
       top: 16px;
 
     }
+    .ui-rotatable-handle {
+        height: 16px;
+        width: 16px;
+        cursor: pointer;
+        background-image: url(rotate.png);
+        background-size: 100%;
+        left: 2px;
+        bottom: 2px;
+    }
   </style>
   
 
@@ -78,6 +87,31 @@ $('#rnd').draggable({
 </script>
 
 
+
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+        var params = {
+            start: function(event, ui) {
+                console.log("Rotating started");
+            },
+            rotate: function(event, ui) {
+                console.log("Rotating");
+            },
+            stop: function(event, ui) {
+                console.log("Rotating stopped");
+            },
+        };
+        $('#rnd').rotatable(params); 
+    });
+  </script>
+  <script src="jquery.ui.rotatable.min.js"></script>
+  <link rel="stylesheet" href="jquery.ui.rotatable.css">
+ 
+
+
+
+
 </head>
 <body>
   <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/cupertino/jquery-ui.css" />
@@ -87,12 +121,15 @@ $('#rnd').draggable({
 <div id="rnd" style="display:inline-block">
     <img id="img_rnd" style="border:1px solid red" src="http://placekitten.com/g/200/300" />
 </div>
-  
-</div>
-</div>
-  
+ 
+
+
+
+
+
+
+
+
 </body>
-
-
 </html>
 
