@@ -57,7 +57,12 @@
 
 <script type='text/javascript'>//<![CDATA[ 
 $(window).load(function(){
-$('#img_rnd').resizable();
+ 
+ $(function() {
+$( "#img_rnd" ).resizable({
+aspectRatio: 6 / 9
+});
+});
 $('#rnd').draggable({
     appendTo: 'body',
     start: function(event, ui) {
