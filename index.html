@@ -1,138 +1,39 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Custome Case</title>
+  <head>
 
-  <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/cupertino/jquery-ui.css" />  
-   
- 
- 
+    <title>Custome Case</title>
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/cupertino/jquery-ui.css" />  
+    <link rel="stylesheet" type="text/css" href="style/default.css" />  
+
+  </head>
+
+  <body>
+  <label>toggle image rotation</label><input type="checkbox" id="rotateButton" /><br>
+  <label>toggle image ratio</label><input type="checkbox" id="ratioCheck" />
   
-  
-  <style type='text/css'>
-   	#stage {
-   		height: 900px;
-   		width: 900px;
-   		border: 1px solid black;
-   		position: relative;
-   	}
-    #frame {
-      height: 540px;
-      width: 240px;
-      border: 1px solid grey;
-      position: relative;
-      display: block;
-      margin: 0 auto;
-      top:100px;
-      background-image: url('temp.png');
-      background-repeat: no-repeat;
-      background-position: center;
-      border-radius: 43px;
-    }
-    #frame:after {
-        content: '';
-        display: block;
-        position: absolute;
-        background: transparent;
-        z-index: 1;
-        pointer-events: none;
-        top: -1px;
-        bottom: -1px;
-        left: -1px;
-        right: -1px;
-        box-shadow: 0 0 0 5000px rgba(255,255,255,.5);
-        border-radius: 43px;
-    } 
- 
-    .ui-rotatable-handle {
-        height: 16px;
-        width: 16px;
-        cursor: pointer;
-        background-image: url(rotate.png);
-        background-size: 100%;
-        left: 2px;
-        bottom: 2px;
-    }
-    #cam {
-      position: absolute;
-      z-index: 999999999;
-      left: 4px;
-      top: 16px;
+  <!-- this is the main container for image editing-->
+  <div id="stage">
+    
+    <!-- this is the div that holds the background image, in the css frame:after alows the users image to to have overlay when outside phone border-->
+  	<div id="frame">
 
-    }
-  </style>
-  
+      <!--img for the camera to have visual rep-->
+  		<img src="images/camera.png" id="cam">
 
+      <!--containers the users image to allow rotation & dragablity // the USERS IMAGE itself is sacalable -->
+  		<div id="imgContainer">
+  		    <img id="userImage" class="userImage" style="border:1px solid red" src="http://placekitten.com/g/200/300" />
+  		</div>
+  		 
+  	</div>
+  </div>
 
-
-
-
-</head>
-<body>
-
-
-
- 
-
-TOGGLE IMAGE LOCK ROTATION <input type="checkbox" id="rotateButton" /><br>
-TOGGLE IMAGE RATIO LOCK<input type="checkbox" id="ratioCheck" />
-<div id="stage">
-	<div id="frame">
-		<img src="camera.png" id="cam">
-
-		<div id="imgContainer">
-		    <img id="userImage" class="userImage" style="border:1px solid red" src="http://placekitten.com/g/200/300" />
-		</div>
-		 
-	</div>
-</div>
-
-
- 
-
-
-
-<script type='text/javascript' src='http://code.jquery.com/jquery-1.5.js'></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.js"></script>
-<script src="jquery.ui.rotatable.min.js"></script>
-<script type='text/javascript'>//<![CDATA[ 
-
-	$(window).load(function(){
-		
-
-		//Image parent container is dragable.
-		$('#imgContainer').draggable();
-
-
-		//Image parent container is rotatable.
-		$('#imgContainer').rotatable(); 
-
-	   
-		$('#rotateButton').click( function() { 
-		       $('.ui-rotatable-handle').toggle();
-		        
-		});
-	 	
-
-		$('#ratioCheck').click( function() {
-		    if($('#ratioCheck').is(":checked"))
-		        ratio =false;
-		    else
-		        ratio = .75;
-		    $(".userImage").resizable('destroy').resizable({
-		        aspectRatio: ratio
-		    });
-		});
-		$(".userImage").resizable({aspectRatio:.75});	
-		 
-
-	});//]]>  
- 
-  </script>
-  
-
-</body>
+  <script type='text/javascript' src='http://code.jquery.com/jquery-1.5.js'></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.js"></script>
+  <script src="js/jquery.ui.rotatable.min.js"></script>
+  <script src="js/script.js"></script>
+  </body>
 </html>
 
  
