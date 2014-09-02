@@ -23,7 +23,8 @@
 		    else
 		        ratio = .75;
 		    $(".userImage").resizable('destroy').resizable({
-		        aspectRatio: ratio
+		        aspectRatio: ratio,
+
 		    });
 		});
 		$(".userImage").resizable({aspectRatio:.75});	
