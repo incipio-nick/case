@@ -10,9 +10,8 @@
 		$('#imgContainer').rotatable(); 
 
 	   
-		$('#rotateButton').click( function() { 
-		       $('.ui-rotatable-handle').toggle();
-		        
+		$('#rotateCheck').click( function() { 
+		    $('.ui-rotatable-handle').toggle();  
 		});
 	 	
 
@@ -23,11 +22,27 @@
 		    else
 		        ratio = .75;
 		    $(".userImage").resizable('destroy').resizable({
-		        aspectRatio: ratio,
-
+		        aspectRatio: ratio
 		    });
 		});
-		$(".userImage").resizable({aspectRatio:.75});	
-		 
+		$(".userImage").resizable({
+			aspectRatio:.75,
+			minWidth:100,
+			minHeight:150
+		});	
+
+
+		$('#previewCheck').click( function() { 
+		    $('#frame').toggleClass('overflowPreview'); 
+
+		    //if toggle image rotation is already checked, uncheck it
+		     if (  $('#rotateCheck').is(':checked') ){
+			       $('#rotateCheck').attr('checked', false);
+			    } else { 
+		    		$('.ui-rotatable-handle').toggle();  
+		    		$('.ui-icon').toggle(); 
+			    }
+
+		});
 
 	}); 

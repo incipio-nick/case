@@ -1,28 +1,26 @@
- 
+	
   #stage {
-        height: 900px;
-        width: 900px;
-        border: 1px solid black;
-        position: relative;
-        background-image: url('../images/bg.jpg');
-        background-size:50px;
-        z-index: 99;
+   		height: 900px;
+   		width: 900px;
+   		border: 1px solid black;
+   		position: relative;
+      overflow: hidden;
+      background-color: grey;
    	}
-    #mainCase {
-        height: 540px;
-        width: 240px;
-        border: 1px solid grey;
-        position: relative;
-        display: block;
-        margin: 0 auto;
-        top:150px;
-        background-image: url('../images/mainCase.png');
-        background-repeat: no-repeat;
-        background-position: center;
-        border-radius: 43px;
-        z-index: 9;
+    #frame {
+      height: 540px;
+      width: 240px;
+      border: 1px solid grey;
+      position: relative;
+      display: block;
+      margin: 0 auto;
+      top:100px;
+      background-image: url('../images/temp.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      border-radius: 43px;
     }
-    #mainCase:after {
+    #frame:after {
         content: '';
         display: block;
         position: absolute;
@@ -33,87 +31,64 @@
         bottom: -1px;
         left: -1px;
         right: -1px;
-        box-shadow: 0 0 0 5000px rgba(255,255,255,.5);
+        box-shadow: 0 0 0 5000px rgba(255,255,255,.8);
         border-radius: 43px;
-        z-index: 9;
     } 
-    #sideCaseL {
-        height: 540px;
-        width: 60px;
-        position: absolute;
-        display: block;
-        margin: 0px auto;
-        background-repeat: no-repeat;
-        background-position: center center;
-        border-radius: 18px;
-        z-index: 9999;
-        top: 150px;
-        left: 265px;
-        border: 1px solid #808080;  
-        -webkit-user-select: none;  /* Chrome all / Safari all */
-        -moz-user-select: none;     /* Firefox all */
-        -ms-user-select: none;      /* IE 10+ */ 
-        -o-user-select: none;
-        user-select: none;   
+    .overflowPreview {
+      overflow: hidden;
     }
-    #sideCaseR {
-        height: 540px;
-        width: 60px;
-        position: absolute;
-        display: block;
-        margin: 0px auto;
-        background-repeat: no-repeat;
-        background-position: center center;
-        border-radius: 18px;
-        z-index: 999;
-        top: 150px;
-        left: 573px;
-        border: 1px solid #808080; 
-        -webkit-user-select: none;  /* Chrome all / Safari all */
-        -moz-user-select: none;     /* Firefox all */
-        -ms-user-select: none;      /* IE 10+ */ 
-        -o-user-select: none;
-        user-select: none;   
+     #userImage {
+      border:3px solid white;
+
+     }
+
+
+
+    #imgContainer {
+      float: left;
     }
-    #sideCaseT {
-        height: 60px;
-        width: 240px;
-        position: absolute;
-        display: block;
-        margin: 0px auto;
-        background-repeat: no-repeat;
-        background-position: center center;
-        border-radius: 18px;
-        z-index: 999;
-        top: 86px;
-        left: 328px;
-        border: 1px solid #808080; 
-        -moz-user-select: none;
+
+
+
+
+    .ui-rotatable-handle .ui-draggable-dragging {
+      display: none!important;
     }
-    #sideCaseB {
-        height: 60px;
-        width: 240px;
+
+    .ui-icon {
+        width: 20px;
+        height: 20px;
+        background-image: url('../images/resize.png'); 
+        background-size: cover;
         position: absolute;
-        display: block;
-        margin: 0px auto;
-        background-repeat: no-repeat;
-        background-position: center center;
-        border-radius: 18px;
-        z-index: 999;
-        top: 694px;
-        left: 328px;
-        border: 1px solid #808080; 
-        -moz-user-select: none;
+        bottom: 0;
+        right: 0; background-position: 0!important;
     }
-    .ui-rotatable-handle {
-        height: 16px;
-        width: 16px;
+
+
+   .ui-rotatable-handle {
+        height: 34px;
+        width: 41px;
         cursor: pointer;
         background-image: url('../images/rotate.png');
-        background-size: 100%;
+        background-position: -6px -1px;
         left: 2px;
         bottom: 2px;
+        position: relative;
+        margin: 0px auto;
+        display: block;
+        top: -34px;
+        background-color: #FFF;
+        border-top-left-radius: 53px;
+        border-top-right-radius: 53px;
+        -webkit-border-top-left-radius: 53px;
+        -webkit-border-top-right-radius: 53px;
+        -moz-border-radius-topleft: 53px;
+        -moz-border-radius-topright: 53px;
+        border-top-left-radius: 53px;
+        border-top-right-radius: 53px;
     }
+ 
     #cam {
       position: absolute;
       z-index: 999999999;
@@ -121,4 +96,10 @@
       top: 16px;
 
     }
-   
+
+    #controlPanel {
+      float: left;
+      height: 600px;
+      width: 300px;
+      border:1px solid black;
+    }

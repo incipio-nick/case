@@ -9,31 +9,34 @@
   </head>
 
   <body>
-  <label>toggle image rotation</label><input type="checkbox" id="rotateButton" /><br>
-  <label>toggle image ratio</label><input type="checkbox" id="ratioCheck" />
- 
+
+  
+
+
+
+  <!--options -->
+  <div id="controlPanel">
+    <label>toggle image rotation</label><input type="checkbox" id="rotateCheck" /><br>
+    <label>toggle image ratio</label><input type="checkbox" id="ratioCheck" /><br>
+    <label>preview work</label><input type="checkbox" id="previewCheck" />
+  </div>
+
   <!-- this is the main container for image editing-->
   <div id="stage">
     
-    <div id="sideCaseL"></div>
-    <div id="sideCaseR"></div>
-    <div id="sideCaseT"></div>
-    <div id="sideCaseB"></div>
-
     <!-- this is the div that holds the background image, in the css frame:after alows the users image to to have overlay when outside phone border-->
-  	<div id="mainCase">
+  	<div id="frame">
 
       <!--img for the camera to have visual rep-->
   		<img src="images/camera.png" id="cam">
 
       <!--containers the users image to allow rotation & dragablity // the USERS IMAGE itself is sacalable -->
   		<div id="imgContainer">
-  		    <img id="userImage" class="userImage" style="border:1px solid red" src="http://placekitten.com/g/200/300" />
+  		    <img id="userImage" class="userImage"   src="http://placekitten.com/g/200/300" />
   		</div>
   		 
   	</div>
   </div>
-
 
 
 
