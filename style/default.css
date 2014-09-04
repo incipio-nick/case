@@ -1,4 +1,4 @@
-	
+ 
   #stage {
    		height: 900px;
    		width: 900px;
@@ -7,6 +7,27 @@
       overflow: hidden;
       background-color: grey;
    	}
+
+    #safeZone {
+      position: absolute;
+      height: 650px;
+      width: 363px; 
+      left: 268px;
+      top: 49px;
+      background-image: url('../images/safeBG.jpg');
+      z-index: 9999;
+    }
+    #safeZone:after {
+      content: '';
+      position: absolute;
+      height: 650px;
+      width: 363px; 
+      background-image: url('../images/safeBG.jpg');
+      z-index: 9999;
+      border: 2px solid #F00;
+      z-index: 9999999;
+    }
+
     #frame {
       height: 540px;
       width: 240px;
@@ -19,6 +40,7 @@
       background-repeat: no-repeat;
       background-position: center;
       border-radius: 43px;
+      z-index: 99999;
     }
     #frame:after {
         content: '';
@@ -34,15 +56,7 @@
         box-shadow: 0 0 0 5000px rgba(255,255,255,.8);
         border-radius: 43px;
     } 
-    .overflowPreview {
-      overflow: hidden;
-    }
-     #userImage {
-      border:3px solid white;
-
-     }
-
-
+ 
 
     #imgContainer {
       float: left;
@@ -102,4 +116,26 @@
       height: 600px;
       width: 300px;
       border:1px solid black;
+    }
+
+    .ui-rotatable-handle:nth-of-type(3){
+      display: none!important;
+    }
+
+
+    /** JAVACRIPT CLAS TOGGLES **/
+
+    .overflowPreview {
+      overflow: hidden;
+    }
+    .hide {
+      display: none;
+    }
+    #userImage {
+      border:3px solid white;
+
+    }
+    .disable {
+      pointer-events: none;
+      opacity: .5;
     }

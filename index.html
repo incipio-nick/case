@@ -16,8 +16,8 @@
 
   <!--options -->
   <div id="controlPanel">
-    <label>toggle image rotation</label><input type="checkbox" id="rotateCheck" /><br>
-    <label>toggle image ratio</label><input type="checkbox" id="ratioCheck" /><br>
+    <div id="rotationControls"><label>toggle image rotation</label><input type="checkbox" id="rotateCheck" /></div> 
+    <div id="ratioControls"><label>toggle image ratio</label><input type="checkbox" id="ratioCheck" /></div> 
     <label>preview work</label><input type="checkbox" id="previewCheck" />
   </div>
 
@@ -25,6 +25,7 @@
   <div id="stage">
     
     <!-- this is the div that holds the background image, in the css frame:after alows the users image to to have overlay when outside phone border-->
+    <div id="safeZone"></div>
   	<div id="frame">
 
       <!--img for the camera to have visual rep-->
