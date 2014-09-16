@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>Custome Case</title>
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/cupertino/jquery-ui.css" />  
+    <link rel="stylesheet" type="text/css" href="style/default.css" />  
+
+  </head>
+
+  <body>
+
+  
+
+
+
+  <!--options -->
+  <div id="controlPanel">  
+
+    <div id="rotationControls"><label>toggle image rotation</label><input type="button" id="rotateToggle" value="toggle image rotation" /></div> 
+    <div id="ratioControls"><label>toggle image ratio</label><input type="button" id="ratioToggle" value="toggle ratio lock" /></div> 
+    <div id="previewControls"><label>preview work</label><input type="button" id="previewToggle"  value="preview mdoe" /></div>
+  </div>
+
+ 
+  <!-- this is the main container for image editing-->
+  <div id="stage">
+    
+    <!-- this is the div that holds the background image, in the css frame:after alows the users image to to have overlay when outside phone border-->
+    <div id="safeZone"></div>
+  	<div id="frame">
+
+      <!--img for the camera to have visual rep-->
+  		<img src="images/camera.png" id="cam">
+
+      <!--containers the users image to allow rotation & dragablity // the USERS IMAGE itself is sacalable -->
+  		<div id="imgContainer">
+  		    <img id="userImage" class="userImage"   src="http://placekitten.com/g/200/300" />
+  		</div>
+  		 
+  	</div>
+  </div>
+
+
+
+
+  <script type='text/javascript' src='http://code.jquery.com/jquery-1.5.js'></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.js"></script>
+  <script src="js/jquery.ui.rotatable.min.js"></script>
+  <script src="js/script.js"></script>
+  </body>
+</html>
+
+ 

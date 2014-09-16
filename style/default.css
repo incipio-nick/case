@@ -1,0 +1,159 @@
+ * {
+   box-sizing:box-sizing;
+   margin: 0;
+   padding: 0;
+ }
+  #stage {
+   		height: 900px;
+   		width: 900px;
+   		border: 1px solid black;
+   		position: relative;
+      overflow: hidden;
+      background-color: grey;
+   	}
+
+    #safeZone {
+      position: absolute;
+      height: 650px;
+      width: 363px; 
+      left: 268px;
+      top: 49px;
+      background-image: url('../images/safeBG.jpg');
+      z-index: 9999;
+    }
+    #safeZone:after {
+      content: '';
+      position: absolute;
+      height: 650px;
+      width: 363px; 
+      background-image: url('../images/safeBG.jpg');
+      z-index: 9999;
+      border: 2px solid #F00;
+      z-index: 9999999;
+    }
+
+    #frame {
+      height: 540px;
+      width: 240px;
+      border: 1px solid grey;
+      position: relative;
+      display: block;
+      margin: 0 auto;
+      top:100px;
+      background-image: url('../images/temp.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      border-radius: 43px;
+      z-index: 99999;
+    }
+    #frame:after {
+        content: '';
+        display: block;
+        position: absolute;
+        background: transparent;
+        z-index: 1;
+        pointer-events: none;
+        top: -1px;
+        bottom: -1px;
+        left: -1px;
+        right: -1px;
+        box-shadow: 0 0 0 5000px rgba(255,255,255,.8);
+        border-radius: 43px;
+    } 
+ 
+
+    #imgContainer {
+      float: left;
+    }
+
+
+
+
+    .ui-rotatable-handle .ui-draggable-dragging {
+      display: none!important;
+    }
+
+    .ui-icon {
+        width: 20px;
+        height: 20px;
+        background-image: url('../images/resize.png'); 
+        background-size: cover;
+        position: absolute;
+        bottom: 0;
+        right: 0; background-position: 0!important;
+    }
+
+
+   .ui-rotatable-handle {
+        height: 34px;
+        width: 41px;
+        cursor: pointer;
+        background-image: url('../images/rotate.png');
+        background-position: -6px -1px;
+        left: 50%;
+        margin: 0px auto;
+        margin-left: -19.5px;
+        bottom: 2px;
+        position: absolute;
+        display: block; 
+        background-color: #FFF;
+        border-top-left-radius: 53px;
+        border-top-right-radius: 53px;
+        -webkit-border-top-left-radius: 53px;
+        -webkit-border-top-right-radius: 53px;
+        -moz-border-radius-topleft: 53px;
+        -moz-border-radius-topright: 53px;
+        border-top-left-radius: 53px;
+        border-top-right-radius: 53px;
+    }
+ 
+    #cam {
+      position: absolute;
+      z-index: 999999999;
+      left: 4px;
+      top: 16px;
+
+    }
+
+    #controlPanel {
+      float: left;
+      height: 600px;
+      width: 300px;
+      border:1px solid black;
+    }
+
+    .ui-rotatable-handle:nth-of-type(3){
+      display: none!important;
+    }
+
+
+    /** JAVACRIPT CLAS TOGGLES **/
+
+    .overflowPreview {
+      overflow: hidden;
+    }
+    .hide {
+      display: none;
+    }
+   
+    .disable {
+      pointer-events: none;
+      opacity: .5;
+    }
+
+
+
+
+
+
+
+    #nwgrip, #negrip, #swgrip, #segrip, #ngrip, #egrip, #sgrip, #wgrip {
+    width: 10px;
+    height: 10px;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+}
+#segrip {
+    right: -5px;
+    bottom: -5px;
+}
