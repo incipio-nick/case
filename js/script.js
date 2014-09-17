@@ -1,25 +1,41 @@
 
 	$(window).load(function(){
-
+		var switchValue = 1;
 		var controlPannel = {
-		    rotationState : 1,
-		    ratioState :  0,
-		    previewState : 0,
+			rotationState : 1,
+			ratioState :  0,
+			previewState : 0,	
 		    //method to togle states depending on button pressed
 		    toggleState: function() {
 		        $(':button').click( function() { 
-		            if (controlPannel[this.id] == 0 ) {  
-		                console.log([this.id] + " to 1");
-		                controlPannel[this.id] = 1;
-		                var switchValue = this.id;
 
+		            if (controlPannel[this.id] == 0 ) {  
+		                console.log([this.id] + " to on, 1");
+		                controlPannel[this.id] = 1; 
 		            } else {
 		                controlPannel[this.id] = 0;
-		                console.log([this.id] + " to 0");
+		                console.log([this.id] + " to off, 0");
 		            }
+
+		            switchValue =[this.id].toString(); 
+		            switch(switchValue) {
+					    case "rotateToggle":
+					        rotateToggle();
+					        console.log("rotateToggle");
+					        break;
+					    case "ratioToggle":
+					        ratioToggle();
+					        console.log("ratioToggle");
+					        break;
+					    default: 
+					    	previewToggle();
+					        console.log("previewToggle");
+					} 
+
 		        });
-		     }
+		    }
 		}
+		
 		controlPannel.toggleState();  
 
 		//Image parent container is dragable.
@@ -34,7 +50,7 @@
 		}
 
 		 
-		//RESIZE default
+		//RESIZE default ratio settings
 		$(".userImage").resizable({
 			aspectRatio:'preserve',
 			minWidth:100,
@@ -43,7 +59,7 @@
 		});	
 
 		//RESIZE CONTORLER 
-		$('#ratioToggle').click( function() {
+		var ratioToggle = function() {
 			  if(controlPannel.ratioState == 1) {
 		        ratio =false;
 		        $(".userImage").resizable('destroy').resizable({
@@ -61,12 +77,13 @@
 					handles: 'n, e, s, w'
 			    });
 		    }
-		});
+		};
 		
 		
 		
-		$('#previewToggle').click( function() { 
+		var previewToggle = function() { 
 		 
+			 
 
 
 			//set stage to preiveiw mode
@@ -76,9 +93,8 @@
 			$('#rotationControls').toggleClass('disable'); 
 			$('#ratioControls').toggleClass('disable'); 
 			$('.ui-resizable-se').toggle();   
-		    
+		         
+		};
 
-			        
-		});
 
 	}); 
