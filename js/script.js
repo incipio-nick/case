@@ -1,36 +1,50 @@
 
 	$(window).load(function(){
-		var switchValue = 1;
+		var switchValue;
 		var controlPannel = {
 			rotationState : 1,
-			ratioState :  0,
+			ratioState :  1,
 			previewState : 0,	
 		    //method to togle states depending on button pressed
 		    toggleState: function() {
 		        $(':button').click( function() { 
 
-		            if (controlPannel[this.id] == 0 ) {  
-		                console.log([this.id] + " to on, 1");
-		                controlPannel[this.id] = 1; 
-		            } else {
-		                controlPannel[this.id] = 0;
-		                console.log([this.id] + " to off, 0");
-		            }
-
 		            switchValue =[this.id].toString(); 
+
 		            switch(switchValue) {
-					    case "rotateToggle":
-					        rotateToggle();
-					        console.log("rotateToggle");
+
+					    case "rotateToggle": 
+					    	if (controlPannel.rotationState == 1) {
+					    		console.log("rotateToggle oFF WAS 1 NOW 0");
+					    		controlPannel.rotationState = 0;
+					    	} else {
+					    		console.log("rotateToggle oN WAS 0 NOW 1");
+					    		controlPannel.rotationState = 1;
+					    	}
+					    	rotateToggle();
 					        break;
-					    case "ratioToggle":
-					        ratioToggle();
-					        console.log("ratioToggle");
+
+					    case "ratioToggle": 
+					    	if (controlPannel.ratioState == 0) {
+					    		console.log("ratioToggle on");
+					    		controlPannel.ratioState = 1;
+					    	} else {
+					    		console.log("ratioToggle off");
+					    		controlPannel.ratioState = 0;
+					    	}
+
+					    	ratioToggle();
 					        break;
-					    default: 
+
+					    default:  
+					  		if (controlPannel.previewState == 0) { 
+					    		controlPannel.previewState = 1; 
+					    	} else { 
+					    		controlPannel.previewState  =0;
+					    	}
 					    	previewToggle();
-					        console.log("previewToggle");
-					} 
+					        break;
+					}  
 
 		        });
 		    }
@@ -54,8 +68,7 @@
 		$(".userImage").resizable({
 			aspectRatio:'preserve',
 			minWidth:100,
-			minHeight:150,
-			handles: 'n, e, s, w'
+			minHeight:150 
 		});	
 
 		//RESIZE CONTORLER 
@@ -65,16 +78,14 @@
 		        $(".userImage").resizable('destroy').resizable({
 			        aspectRatio: ratio,
 					minWidth:100,
-					minHeight:150,
-					handles: 'n, e, s, w'
+					minHeight:150 
 			    });
 		    } else {
 		        ratio = 'preserve';
 			    $(".userImage").resizable('destroy').resizable({
 			        aspectRatio: ratio,
 					minWidth:100,
-					minHeight:150,
-					handles: 'n, e, s, w'
+					minHeight:150 
 			    });
 		    }
 		};
@@ -82,9 +93,25 @@
 		
 		
 		var previewToggle = function() { 
-		 
-			 
 
+		 	if (controlPannel.previewState == 1) {
+				console.log("preview turned ON"); 
+				if (controlPannel.rotationState == 1) {
+					rotateToggle();
+					controlPannel.rotationState = 0; 
+				}
+				$('#imgContainer').draggable('destroy');
+		 	} else { 
+				if (controlPannel.rotationState == 0) {
+					if (controlPannel.rotationState == 0) {
+					 rotateToggle();
+						controlPannel.rotationState = 1;
+					}
+				} 
+				$('#imgContainer').draggable();
+		 	}
+ 
+				  
 
 			//set stage to preiveiw mode
 		    $('#frame').toggleClass('overflowPreview'); 
