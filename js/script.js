@@ -3,13 +3,15 @@
 		var switchValue;
 		var controlPannel = {
 			rotationState : 1,
-			ratioState :  1,
+			ratioState :  0,
 			previewState : 0,	
 		    //method to togle states depending on button pressed
 		    toggleState: function() {
 		        $(':button').click( function() { 
-
-		            switchValue =[this.id].toString(); 
+					switchValue =[this.id].toString();
+				    this.value = this.value == switchValue +' on' ? switchValue +' off' : switchValue +' on';
+				 
+		             
 
 		            switch(switchValue) {
 
@@ -36,13 +38,17 @@
 					    	ratioToggle();
 					        break;
 
-					    default:  
-					  		if (controlPannel.previewState == 0) { 
+					     case "previewToggle": 
+					     	if (controlPannel.previewState == 0) { 
 					    		controlPannel.previewState = 1; 
 					    	} else { 
 					    		controlPannel.previewState  =0;
 					    	}
 					    	previewToggle();
+					        break;
+
+					     case "reset": 
+					    	  window.location.reload(true);
 					        break;
 					}  
 
@@ -123,5 +129,7 @@
 		         
 		};
 
+ 
+		
 
 	}); 
